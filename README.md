@@ -1,13 +1,10 @@
 # Autoenv
 
-Until recently, the default name was `.env`, but now it is `.in`. This is done in order not to conflict with `.env` files from numerous projects.
+The default environment file is `ENV.in`/`ENV.out`.
 
-#### Autoenv automatically sources (known/whitelisted) `.in` and `.out` files.
+#### Autoenv automatically sources (known/whitelisted) `ENV.in` and `ENV.out` files.
 
-This plugin support for enter and leave events. By default `.in` is used for entering, and `.out` for leaving. And you can set variable `CLICOLOR=1` for enabling colored output.
-
-The environment variables `$AUTOENV_IN_FILE` & `$AUTOENV_OUT_FILE` can be used
-to override the default values for the names of `.in` & `.out` respectively.
+This plugin supports enter and leave events. By default `ENV.in` is used for entering, and `ENV.out` for leaving. And you can set variable `CLICOLOR=1` for enabling colored output.
 
 ![](term.png)
 
@@ -16,35 +13,35 @@ to override the default values for the names of `.in` & `.out` respectively.
 - If you are in the directory `/home/user/dir1` and execute `cd /var/www/myproject` this plugin will source following files if they exist
 
 ```
-/home/user/dir1/.out
-/home/user/.out
-/home/.out
-/var/.in
-/var/www/.in
-/var/www/myproject/.in
+/home/user/dir1/ENV.out
+/home/user/ENV.out
+/home/ENV.out
+/var/ENV.in
+/var/www/ENV.in
+/var/www/myproject/ENV.in
 ```
 
 - If you are in the directory `/` and execute `cd /home/user/dir1` this plugin will source following files if they exist
 
 ```
-/home/.in
-/home/user/.in
-/home/user/dir1/.in
+/home/ENV.in
+/home/user/ENV.in
+/home/user/dir1/ENV.in
 ```
 
 - If you are in the directory `/home/user/dir1` and execute `cd /` this plugin will source following files if they exist
 
 ```
-/home/user/dir1/.out
-/home/user/.out
-/home/.out
+/home/user/dir1/ENV.out
+/home/user/ENV.out
+/home/ENV.out
 ```
 
-## Examples of `.in` and `.out` files
+## Examples of `ENV.in` and `ENV.out` files
 
 ### For node.js developing:
 
-### .in
+### ENV.in
 
 ```sh
 nvm use node
@@ -53,7 +50,7 @@ export PATH=`pwd`/node_modules/.bin:$PATH
 
 ```
 
-### .out
+### ENV.out
 
 ```sh
 nvm use system
