@@ -1,10 +1,10 @@
 # Autoenv
 
-The default environment file is `ENV.in`/`ENV.out`.
+The default environment file is `ENV_in`/`ENV_out`.
 
-#### Autoenv automatically sources (known/whitelisted) `ENV.in` and `ENV.out` files.
+#### Autoenv automatically sources (known/whitelisted) `ENV_in` and `ENV_out` files.
 
-This plugin supports enter and leave events. By default `ENV.in` is used for entering, and `ENV.out` for leaving. And you can set variable `CLICOLOR=1` for enabling colored output.
+This plugin supports enter and leave events. By default `ENV_in` is used for entering, and `ENV_out` for leaving. And you can set variable `CLICOLOR=1` for enabling colored output.
 
 ![](term.png)
 
@@ -13,35 +13,35 @@ This plugin supports enter and leave events. By default `ENV.in` is used for ent
 - If you are in the directory `/home/user/dir1` and execute `cd /var/www/myproject` this plugin will source following files if they exist
 
 ```
-/home/user/dir1/ENV.out
-/home/user/ENV.out
-/home/ENV.out
-/var/ENV.in
-/var/www/ENV.in
-/var/www/myproject/ENV.in
+/home/user/dir1/ENV_out
+/home/user/ENV_out
+/home/ENV_out
+/var/ENV_in
+/var/www/ENV_in
+/var/www/myproject/ENV_in
 ```
 
 - If you are in the directory `/` and execute `cd /home/user/dir1` this plugin will source following files if they exist
 
 ```
-/home/ENV.in
-/home/user/ENV.in
-/home/user/dir1/ENV.in
+/home/ENV_in
+/home/user/ENV_in
+/home/user/dir1/ENV_in
 ```
 
 - If you are in the directory `/home/user/dir1` and execute `cd /` this plugin will source following files if they exist
 
 ```
-/home/user/dir1/ENV.out
-/home/user/ENV.out
-/home/ENV.out
+/home/user/dir1/ENV_out
+/home/user/ENV_out
+/home/ENV_out
 ```
 
-## Examples of `ENV.in` and `ENV.out` files
+## Examples of `ENV_in` and `ENV_out` files
 
 ### For node.js developing:
 
-### ENV.in
+### ENV_in
 
 ```sh
 nvm use node
@@ -50,7 +50,7 @@ export PATH=`pwd`/node_modules/.bin:$PATH
 
 ```
 
-### ENV.out
+### ENV_out
 
 ```sh
 nvm use system
